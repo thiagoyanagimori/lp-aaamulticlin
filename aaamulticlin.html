@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AAAmulticlin — Clínica Odontológica e Médica integrada. Equipe multidisciplinar, tecnologia de ponta e atendimento humanizado em São Paulo.">
+<title>AAAmulticlin — Clínica Odontológica e Médica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --black:#0a0a0a;
+  --near-black:#111111;
+  --ink:#1c1c1c;
+  --mid-dark:#3a3a3a;
+  --mid:#6b6b6b;
+  --muted:#9a9a9a;
+  --border:#e2e2e2;
+  --border-light:#ebebeb;
+  --bg:#ffffff;
+  --bg-off:#fafafa;
+  --bg-subtle:#f5f5f5;
+  --forest:#0e4d6b;
+  --forest-mid:#1a6f94;
+  --forest-pale:#e8f4f9;
+  --display:'Cormorant Garamond',Georgia,serif;
+  --body:'Outfit',system-ui,sans-serif;
+  --nav-h:76px;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:var(--body);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:var(--nav-h);
+  z-index:100;
+  background:#ffffff;
+  border-bottom:1px solid var(--border-light);
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  padding:0 clamp(24px,4vw,56px);
+  transition:background .4s var(--ease);
+}
+.nav-logo{
+  display:flex;align-items:center;
+  text-decoration:none;
+  justify-self:start;
+}
+.logo-img{
+  height:52px;
+  width:auto;
+  display:block;
+}
+.nav-center{
+  display:flex;
+  gap:0;
+  justify-self:center;
+}
+.nav-center a{
+  font-size:13px;
+  font-weight:400;
+  color:var(--mid);
+  text-decoration:none;
+  padding:8px clamp(10px,1.1vw,18px);
+  letter-spacing:.02em;
+  white-space:nowrap;
+  transition:color .25s var(--ease);
+}
+.nav-center a:hover{color:var(--ink)}
+.nav-right{
+  display:flex;align-items:center;
+  gap:clamp(10px,1.5vw,20px);
+  justify-self:end;
+}
+.nav-phone{
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:.04em;
+  font-weight:300;
+  white-space:nowrap;
+}
+.nav-btn{
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.02em;
+  color:white;
+  background:var(--forest);
+  border:none;
+  padding:10px clamp(14px,1.5vw,22px);
+  border-radius:100px;
+  cursor:pointer;
+  text-decoration:none;
+  white-space:nowrap;
+  flex-shrink:0;
+  transition:background .25s var(--ease),transform .2s var(--ease);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.nav-btn:hover{background:var(--forest-mid);transform:translateY(-1px)}
+
+.hamburger{
+  display:none;
+  flex-direction:column;gap:6px;
+  cursor:pointer;padding:6px;
+  background:none;border:none;
+}
+.hamburger span{
+  width:20px;height:1px;
+  background:var(--ink);display:block;
+  transition:var(--ease) .3s;
+}
+.mobile-nav{
+  display:none;
+  position:fixed;
+  top:var(--nav-h);left:0;right:0;
+  background:var(--bg);
+  border-bottom:1px solid var(--border-light);
+  padding:32px max(32px,calc((100vw - 1280px)/2)) 40px;
+  z-index:99;
+  flex-direction:column;gap:0;
+}
+.mobile-nav a{
+  font-size:15px;
+  color:var(--mid-dark);
+  text-decoration:none;
+  padding:14px 0;
+  border-bottom:1px solid var(--border-light);
+  display:block;
+  transition:color .2s;
+}
+.mobile-nav a:hover{color:var(--ink)}
+.mobile-nav .mob-cta{
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--bg);
+  background:var(--ink);
+  text-align:center;
+  padding:14px;
+  margin-top:20px;
+  border-bottom:none;
+}
+
+/* ── HERO ── */
+.hero{
+  height:100svh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:stretch;
+  overflow:hidden;
+  padding:0;
+}
+.hero-left{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:calc(var(--nav-h) + 40px) 56px 40px max(48px,calc((100vw - 1280px)/2));
+}
+.hero-overline{
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--forest-mid);
+  margin-bottom:18px;
+}
+.hero h1{
+  font-family:var(--display);
+  font-size:clamp(30px,3.6vw,52px);
+  font-weight:300;
+  line-height:1.08;
+  letter-spacing:-.025em;
+  color:var(--black);
+  margin-bottom:16px;
+}
+.hero-body{
+  font-size:15px;
+  font-weight:300;
+  color:var(--mid);
+  line-height:1.7;
+  max-width:400px;
+  margin-bottom:32px;
+}
+.hero-actions{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.btn-wa{
+  font-size:14px;
+  font-weight:500;
+  color:white;
+  background:var(--forest);
+  padding:13px 26px;
+  border-radius:100px;
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:9px;
+  transition:background .25s var(--ease),transform .2s var(--ease),box-shadow .25s var(--ease);
+  box-shadow:0 4px 18px rgba(14,77,107,.18);
+}
+.btn-wa:hover{background:var(--forest-mid);transform:translateY(-2px);box-shadow:0 8px 28px rgba(14,77,107,.28)}
+.btn-wa svg{flex-shrink:0}
+.btn-outline{
+  font-size:14px;
+  font-weight:400;
+  color:var(--ink);
+  background:transparent;
+  padding:12px 24px;
+  border-radius:100px;
+  border:1.5px solid var(--border);
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:9px;
+  transition:border-color .25s var(--ease),background .25s var(--ease);
+}
+.btn-outline:hover{border-color:var(--mid);background:var(--bg-off)}
+.btn-outline svg{flex-shrink:0}
+.hero-photo{
+  position:relative;
+  overflow:hidden;
+  border-radius:0 0 0 80px;
+  margin-top:var(--nav-h);
+}
+.hero-photo-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.hero-photo-placeholder{
+  width:100%;height:100%;
+  min-height:100%;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:0;
+  background:linear-gradient(160deg,#d9edf5 0%,#bbd9ea 40%,#a3c9de 100%);
+  position:relative;
+}
+.hero-photo-placeholder::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 55% 40%,rgba(255,255,255,.35) 0%,transparent 70%);
+}
+.clinic-badge-wrap{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+}
+.clinic-badge{
+  width:100px;height:100px;
+  border-radius:50%;
+  background:var(--forest);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 12px 48px rgba(14,77,107,.35);
+  gap:0;
+}
+.clinic-badge-aaa{
+  font-family:Georgia,serif;
+  font-size:22px;
+  font-weight:400;
+  color:white;
+  letter-spacing:.06em;
+  line-height:1;
+}
+.clinic-badge-line{
+  width:32px;height:1px;
+  background:rgba(255,255,255,.4);
+  margin:5px 0 3px;
+}
+.clinic-badge-sub{
+  font-size:7px;
+  font-weight:400;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.7);
+  line-height:1;
+}
+.clinic-badge-name{
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--forest);
+}
+
+/* ── SECTION BASE ── */
+section{padding:120px max(32px,calc((100vw - 1280px)/2))}
+.s-tag{
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:block;
+  margin-bottom:20px;
+}
+.s-title{
+  font-family:var(--display);
+  font-size:clamp(36px,4vw,56px);
+  font-weight:300;
+  line-height:1.08;
+  letter-spacing:-.02em;
+  color:var(--black);
+}
+.s-title em{font-style:italic;font-weight:300}
+.s-body{
+  font-size:16px;
+  font-weight:300;
+  color:var(--mid);
+  line-height:1.75;
+  max-width:520px;
+}
+
+/* ── DIFFERENTIALS PREMIUM ── */
+/* ── DIFERENCIAIS ── */
+.prem-section{
+  padding:52px max(40px,calc((100vw - 1320px)/2)) 56px;
+  background:#ffffff;
+}
+.prem-overline{
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:block;
+  margin-bottom:18px;
+}
+/* outer: col1 | col23 */
+.prem-cols{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:start;
+}
+/* col1 */
+.prem-headline{
+  font-family:var(--display);
+  font-size:clamp(28px,3vw,44px);
+  font-weight:300;
+  line-height:1.06;
+  letter-spacing:-.03em;
+  color:var(--black);
+  margin-bottom:12px;
+}
+.prem-lead{
+  font-size:13px;
+  font-weight:300;
+  color:var(--mid);
+  line-height:1.6;
+  max-width:340px;
+  margin-bottom:16px;
+}
+.prem-main-img{
+  width:72%;
+  margin-top:8px;
+  overflow:hidden;
+  max-height:38vh;
+}
+.prem-main-img img{
+  width:100%;
+  height:100%;
+  max-height:38vh;
+  object-fit:contain;
+  object-position:left center;
+  display:block;
+  transition:transform .8s var(--ease);
+}
+.prem-main-img:hover img{transform:scale(1.03);}
+/* col23: image column + text column side by side, 3 rows */
+.prem-col23{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  grid-template-rows:repeat(3,auto);
+  gap:0 32px;
+}
+/* each image cell */
+.prem-stack-item{
+  display:contents;
+}
+.prem-stack-img{
+  width:100%;
+  overflow:hidden;
+  align-self:stretch;
+}
+.prem-stack-img img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  filter:brightness(.96) contrast(1.05) saturate(.85);
+  transition:transform .8s var(--ease),filter .6s var(--ease);
+}
+.prem-stack-img:hover img{transform:scale(1.04);filter:brightness(1) contrast(1.05) saturate(.92)}
+/* each text block */
+.prem-block{
+  padding:0 0 10px 0;
+  align-self:start;
+}
+.prem-block+.prem-stack-img{
+  margin-top:8px;
+}
+.prem-block-num{
+  font-family:var(--display);
+  font-size:20px;
+  font-weight:300;
+  color:var(--muted);
+  letter-spacing:-.01em;
+  display:block;
+  margin-bottom:6px;
+  line-height:1;
+}
+.prem-block-num::after{
+  content:'';
+  display:inline-block;
+  width:20px;height:1px;
+  background:var(--border);
+  margin-left:8px;
+  vertical-align:middle;
+}
+.prem-block-title{
+  font-family:var(--display);
+  font-size:clamp(16px,1.4vw,22px);
+  font-weight:400;
+  color:var(--ink);
+  letter-spacing:-.015em;
+  line-height:1.15;
+  margin-bottom:5px;
+}
+.prem-block-sub{
+  font-size:9px;
+  font-weight:400;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:7px;
+  display:block;
+}
+.prem-block-desc{
+  font-size:12px;
+  font-weight:300;
+  color:var(--mid);
+  line-height:1.55;
+  margin-bottom:8px;
+}
+.prem-block-details{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:2px 0;
+}
+.prem-block-details li{
+  font-size:11px;
+  font-weight:300;
+  color:var(--muted);
+  letter-spacing:.01em;
+  display:flex;align-items:center;gap:6px;
+  width:50%;
+}
+.prem-block-details li::before{
+  content:'·';
+  color:var(--muted);
+  flex-shrink:0;
+  font-size:13px;
+  line-height:1;
+}
+.prem-seal{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:18px;
+}
+.prem-seal-badge{width:52px;flex-shrink:0;}
+.prem-seal-badge svg{display:block;width:100%;height:auto}
+.prem-seal-label{
+  font-size:9px;
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--forest-mid);
+  display:block;
+  margin-bottom:2px;
+}
+.prem-seal-name{
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+
+/* ── ABOUT ── */
+.about-section{background:var(--bg-subtle)}
+.about-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:100px;
+  align-items:center;
+}
+.about-img-wrap{position:relative}
+.about-img{
+  width:100%;
+  aspect-ratio:3/4;
+  background:var(--border-light);
+  position:relative;
+  overflow:hidden;
+}
+.about-img-inner{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:12px;
+  color:var(--border);
+}
+.about-img-photo{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  filter:brightness(.97) contrast(1.03) saturate(.9);
+  transition:transform .8s var(--ease);
+}
+.about-img:hover .about-img-photo{transform:scale(1.03)}
+.img-caption{
+  position:absolute;
+  bottom:28px;left:28px;right:28px;
+  font-size:11px;
+  font-weight:300;
+  color:var(--muted);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.about-stat-float{
+  position:absolute;
+  bottom:-28px;right:-28px;
+  width:160px;
+  background:var(--forest);
+  padding:28px 24px;
+}
+.asf-num{
+  font-family:var(--display);
+  font-size:42px;
+  font-weight:300;
+  color:white;
+  line-height:1;
+  display:block;
+  margin-bottom:6px;
+}
+.asf-txt{
+  font-size:11px;
+  font-weight:300;
+  color:rgba(255,255,255,.55);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  line-height:1.4;
+}
+.about-text{}
+.about-text .s-title{margin:16px 0 28px}
+.about-text .s-body{margin-bottom:40px}
+.about-pillars{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  border-top:1px solid var(--border-light);
+}
+.pillar{
+  display:flex;
+  align-items:flex-start;
+  gap:24px;
+  padding:24px 0;
+  border-bottom:1px solid var(--border-light);
+}
+.pillar-index{
+  font-family:var(--display);
+  font-size:13px;
+  font-weight:300;
+  color:var(--muted);
+  flex-shrink:0;
+  padding-top:2px;
+  min-width:24px;
+}
+.pillar-body h4{
+  font-size:14px;
+  font-weight:500;
+  color:var(--ink);
+  margin-bottom:4px;
+  letter-spacing:-.01em;
+}
+.pillar-body p{
+  font-size:13px;
+  font-weight:300;
+  color:var(--muted);
+  line-height:1.65;
+}
+
+/* ── TREATMENTS ── */
+.treats-header{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:end;
+  margin-bottom:72px;
+  padding-bottom:40px;
+  border-bottom:1px solid var(--border-light);
+}
+.treats-header .s-body{max-width:100%}
+.treats-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.treat-item{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:24px;
+  padding:40px 36px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:
+    transform .45s cubic-bezier(.16,1,.3,1),
+    border-color .3s var(--ease),
+    box-shadow .35s var(--ease);
+}
+.treat-item:hover{
+  transform:translateY(-5px);
+  border-color:rgba(0,0,0,.13);
+  box-shadow:0 20px 56px rgba(0,0,0,.07),0 4px 16px rgba(0,0,0,.03);
+}
+.treat-cat{
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:20px;
+  display:block;
+}
+.treat-cat.medical{color:var(--forest-mid)}
+.treat-item h3{
+  font-family:var(--display);
+  font-size:clamp(22px,1.8vw,28px);
+  font-weight:300;
+  color:var(--black);
+  letter-spacing:-.025em;
+  line-height:1.1;
+  margin-bottom:16px;
+  flex:1;
+}
+.treat-item p{
+  font-size:13px;
+  font-weight:300;
+  color:var(--mid);
+  line-height:1.65;
+}
+
+/* ── EXAMS ── */
+.exams-section{
+  background:var(--ink);
+  padding:120px max(32px,calc((100vw - 1280px)/2));
+}
+.exams-section .s-tag{color:rgba(255,255,255,.3)}
+.exams-section .s-title{color:white}
+.exams-layout{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:80px;
+  align-items:start;
+}
+.exams-intro .s-body{
+  color:rgba(255,255,255,.4);
+  font-weight:300;
+  margin-top:24px;
+}
+.exams-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:1px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.06);
+  margin-top:56px;
+}
+.exam-item{
+  padding:36px 28px;
+  background:var(--ink);
+  transition:background .3s var(--ease);
+}
+.exam-item:hover{background:#1a1a1a}
+.exam-n{
+  font-family:var(--display);
+  font-size:11px;
+  font-weight:300;
+  color:rgba(255,255,255,.2);
+  letter-spacing:.1em;
+  margin-bottom:16px;
+  display:block;
+}
+.exam-name{
+  font-family:var(--display);
+  font-size:20px;
+  font-weight:300;
+  color:rgba(255,255,255,.85);
+  letter-spacing:-.01em;
+  line-height:1.2;
+}
+.exam-desc{
+  font-size:12px;
+  font-weight:300;
+  color:rgba(255,255,255,.3);
+  line-height:1.6;
+  margin-top:10px;
+}
+
+/* ── TEAM / QUALIFICAÇÕES ── */
+.team-section{
+  padding:100px max(40px,calc((100vw - 1280px)/2)) 80px;
+  background:#fff;
+}
+.team-header{
+  text-align:center;
+  margin-bottom:72px;
+}
+.team-tag{
+  font-size:10px;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:block;
+  margin-bottom:20px;
+}
+.team-headline{
+  font-family:var(--display);
+  font-size:clamp(36px,4vw,58px);
+  font-weight:300;
+  color:var(--black);
+  letter-spacing:-.025em;
+  line-height:1.04;
+}
+.team-card{
+  display:grid;
+  grid-template-columns:45% 1fr;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 2px 24px rgba(0,0,0,.05),0 1px 4px rgba(0,0,0,.03);
+  margin-bottom:80px;
+  background:#fff;
+}
+.team-card-img{
+  overflow:hidden;
+  position:relative;
+}
+.team-card-img img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:top center;
+  filter:brightness(.97) contrast(1.02) saturate(.9);
+  transition:transform .9s var(--ease);
+}
+.team-card:hover .team-card-img img{transform:scale(1.03)}
+.team-card-body{
+  padding:52px 56px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.team-role-label{
+  font-size:10px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--forest-mid);
+  display:block;
+  margin-bottom:16px;
+}
+.team-name{
+  font-family:var(--display);
+  font-size:clamp(28px,2.6vw,40px);
+  font-weight:300;
+  color:var(--black);
+  letter-spacing:-.02em;
+  line-height:1.1;
+  margin-bottom:16px;
+}
+.team-cro{
+  display:inline-flex;
+  align-items:center;
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--forest);
+  border:1px solid var(--border);
+  padding:6px 14px;
+  margin-bottom:40px;
+}
+.team-quals{
+  border-top:1px solid var(--border-light);
+}
+.team-qual-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:16px 0;
+  border-bottom:1px solid var(--border-light);
+  gap:20px;
+}
+.team-qual-desc{
+  font-size:13px;
+  font-weight:300;
+  color:var(--mid-dark);
+  line-height:1.4;
+  flex:1;
+}
+.team-qual-year{
+  font-family:var(--display);
+  font-size:15px;
+  font-weight:300;
+  color:var(--muted);
+  letter-spacing:.02em;
+  white-space:nowrap;
+}
+.team-doctors-wrap{
+  border-top:1px solid var(--border-light);
+  padding-top:56px;
+}
+.team-doctors-label{
+  font-size:10px;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:block;
+  margin-bottom:32px;
+}
+.team-doctors-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  border-top:1px solid var(--border-light);
+  border-left:1px solid var(--border-light);
+}
+.doctor-card{
+  padding:20px 24px;
+  border-right:1px solid var(--border-light);
+  border-bottom:1px solid var(--border-light);
+  transition:background .2s var(--ease);
+}
+.doctor-card:hover{background:var(--bg-subtle)}
+.doctor-card-name{
+  font-size:13px;
+  font-weight:300;
+  color:var(--ink);
+  line-height:1.35;
+}
+.doctor-card-cro{
+  font-size:10px;
+  font-weight:400;
+  letter-spacing:.1em;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+/* ── CTA FULL ── */
+.cta-full{
+  background:var(--black);
+  padding:120px max(32px,calc((100vw - 1280px)/2));
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:60px;
+  flex-wrap:wrap;
+}
+.cta-full-text h2{
+  font-family:var(--display);
+  font-size:clamp(36px,4vw,60px);
+  font-weight:300;
+  color:white;
+  letter-spacing:-.025em;
+  line-height:1.05;
+  margin-bottom:16px;
+}
+.cta-full-text h2 em{font-style:italic;font-weight:300}
+.cta-full-text p{
+  font-size:15px;
+  font-weight:300;
+  color:rgba(255,255,255,.4);
+}
+.cta-full-actions{
+  display:flex;align-items:center;gap:24px;flex-shrink:0;
+}
+.btn-white{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink);
+  background:white;
+  padding:14px 32px;
+  text-decoration:none;
+  transition:background .25s var(--ease),transform .2s var(--ease);
+  display:inline-block;
+}
+.btn-white:hover{background:#f0f0f0;transform:translateY(-1px)}
+.btn-ghost-white{
+  font-size:12px;
+  font-weight:300;
+  color:rgba(255,255,255,.5);
+  text-decoration:none;
+  letter-spacing:.06em;
+  transition:color .25s var(--ease);
+}
+.btn-ghost-white:hover{color:white}
+
+/* ── CONTACT ── */
+.contact-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:100px;
+  align-items:start;
+}
+.contact-links{
+  margin-top:48px;
+  border-top:1px solid var(--border-light);
+}
+.contact-link{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 0;
+  border-bottom:1px solid var(--border-light);
+  text-decoration:none;
+  color:var(--ink);
+  transition:color .2s var(--ease);
+  gap:16px;
+}
+.contact-link:hover{color:var(--forest-mid)}
+.cl-label{
+  font-size:10px;
+  font-weight:400;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:4px;
+}
+.cl-value{
+  font-family:var(--display);
+  font-size:22px;
+  font-weight:300;
+  color:inherit;
+  letter-spacing:-.01em;
+}
+.cl-arrow{
+  flex-shrink:0;
+  font-size:20px;
+  color:var(--border);
+  transition:color .2s var(--ease),transform .25s var(--ease);
+}
+.contact-link:hover .cl-arrow{
+  color:var(--forest-mid);
+  transform:translate(3px,-3px);
+}
+.contact-right{}
+.contact-right .s-title{margin:16px 0 20px}
+.contact-right .s-body{margin-bottom:44px}
+.wa-cta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--bg-subtle);
+  border:1px solid var(--border-light);
+  padding:28px 32px;
+  text-decoration:none;
+  transition:border-color .3s var(--ease),background .3s var(--ease);
+  gap:20px;
+}
+.wa-cta:hover{
+  border-color:var(--border);
+  background:white;
+}
+.wa-cta-left{}
+.wa-overline{
+  font-size:10px;
+  font-weight:400;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:8px;
+  display:block;
+}
+.wa-num{
+  font-family:var(--display);
+  font-size:28px;
+  font-weight:300;
+  color:var(--ink);
+  letter-spacing:-.01em;
+}
+.wa-action{
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:flex;align-items:center;gap:10px;
+  transition:color .25s var(--ease),gap .25s var(--ease);
+}
+.wa-cta:hover .wa-action{
+  color:var(--ink);
+  gap:16px;
+}
+.wa-action::after{
+  content:'';
+  width:16px;height:1px;
+  background:currentColor;
+}
+.contact-info{
+  display:flex;
+  align-items:flex-start;
+  padding:16px 0;
+  border-bottom:1px solid var(--border-light);
+}
+.cl-value-text{
+  font-size:14px;
+  font-weight:300;
+  color:var(--mid-dark);
+  line-height:1.7;
+  margin-top:6px;
+}
+.contact-map{
+  margin-top:32px;
+  overflow:hidden;
+  border-radius:12px;
+  border:1px solid var(--border-light);
+}
+.contact-map iframe{
+  width:100%;
+  height:260px;
+  display:block;
+  border:none;
+  filter:grayscale(.1) contrast(.97);
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg-off);
+  border-top:1px solid var(--border-light);
+  padding:72px max(32px,calc((100vw - 1280px)/2)) 40px;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;
+  padding-bottom:60px;
+  border-bottom:1px solid var(--border-light);
+}
+.footer-brand .nav-logo{margin-bottom:20px;display:inline-flex}
+.footer-desc{
+  font-size:13px;
+  font-weight:300;
+  color:var(--muted);
+  line-height:1.7;
+  max-width:280px;
+}
+.footer-col h5{
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--mid);
+  margin-bottom:24px;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-col ul a{
+  font-size:13px;
+  font-weight:300;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color .2s var(--ease);
+}
+.footer-col ul a:hover{color:var(--ink)}
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:32px;
+  font-size:12px;
+  font-weight:300;
+  color:var(--muted);
+  gap:20px;flex-wrap:wrap;
+}
+
+/* ── FLOATING WA ── */
+.float-wa{
+  position:fixed;
+  bottom:32px;right:32px;
+  z-index:90;
+  display:flex;align-items:center;gap:0;
+}
+.float-wa-label{
+  background:var(--ink);
+  color:white;
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:.06em;
+  padding:12px 20px;
+  white-space:nowrap;
+  opacity:0;
+  transform:translateX(8px);
+  transition:all .3s var(--ease);
+  pointer-events:none;
+}
+.float-wa:hover .float-wa-label{
+  opacity:1;transform:translateX(0);
+}
+.float-wa-btn{
+  width:52px;height:52px;
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  transition:background .25s var(--ease);
+  flex-shrink:0;
+}
+.float-wa-btn:hover{background:var(--forest)}
+.float-wa-btn svg{display:block}
+
+/* ── REVEAL ── */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .8s var(--ease), transform .8s var(--ease);
+}
+.reveal.up{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}
+.d2{transition-delay:.2s}
+.d3{transition-delay:.3s}
+.d4{transition-delay:.4s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1200px){
+  .nav-phone{display:none}
+}
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;height:auto;min-height:100svh}
+  .hero-left{padding:calc(var(--nav-h)+40px) 40px 40px 40px}
+  .hero-photo{border-radius:0 0 0 48px;margin-top:0;height:56vw;max-height:520px;min-height:320px}
+  .hero-photo-placeholder{min-height:320px}
+  .prem-cols{grid-template-columns:1fr}
+  .prem-col23{grid-template-columns:1fr}
+  .about-layout,.contact-layout{grid-template-columns:1fr;gap:60px}
+  .team-card{grid-template-columns:1fr;border-radius:20px}
+  .about-stat-float{position:static;margin-top:24px;width:auto}
+  .treats-grid{grid-template-columns:1fr 1fr}
+  .exams-layout{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:36px}
+  .treats-header{grid-template-columns:1fr}
+  .cta-full{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:768px){
+  :root{--nav-h:56px}
+  section{padding:80px 24px}
+  .exams-section{padding:80px 24px}
+  .cta-full{padding:80px 24px}
+  nav{padding:0 24px}
+  .hero{display:flex!important;flex-direction:column!important;height:auto!important;min-height:0!important;padding:96px 24px 0!important;overflow:visible}
+  .hero-left{width:100%;padding:0;max-width:360px}
+  .hero-overline{font-size:10px;letter-spacing:.16em;margin-bottom:20px}
+  .hero h1{font-size:38px;line-height:1.08;letter-spacing:-.03em;max-width:320px;margin-bottom:0}
+  .hero-body{font-size:15px;line-height:1.6;max-width:330px;margin-top:22px;margin-bottom:0}
+  .hero-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-start;margin-top:26px}
+  .hero-actions a,.hero-actions button{width:fit-content;max-width:100%}
+  .hero-photo{width:100%;margin-top:40px;height:auto;max-height:280px;min-height:0;border-radius:0}
+  .hero-photo-img{width:100%;height:auto;max-height:280px;object-fit:cover;object-position:center;display:block}
+  .nav-center{display:none}
+  .nav-phone{display:none}
+  .nav-right{display:none}
+  .hamburger{display:flex;grid-column:3;justify-self:end}
+
+  .treats-grid{grid-template-columns:1fr}
+  .exams-grid{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr;gap:32px}
+  .footer-desc{max-width:100%}
+  .hero-meta{gap:32px}
+  .team-section{padding:72px 24px 60px}
+  .team-header{margin-bottom:48px}
+  .team-card{margin-bottom:56px;border-radius:16px}
+  .team-card-img{min-height:320px}
+  .team-card-body{padding:36px 28px}
+  .contact-layout{gap:40px}
+}
+@media(max-width:480px){
+  .exams-grid{grid-template-columns:1fr}
+  .hero h1{font-size:34px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" aria-label="AAAmulticlin">
+    <img src="logo.jpg" alt="AAAmulticlin" class="logo-img" />
+  </a>
+  <div class="nav-center" role="navigation" aria-label="Navegação principal">
+    <a href="#sobre">Sobre</a>
+    <a href="#tratamentos">Tratamentos</a>
+    <a href="#exames">Exames</a>
+    <a href="#equipe">Equipe</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <div class="nav-right">
+    
+    <a href="https://wa.me/5511991111622?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="nav-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Agendar consulta</a>
+  </div>
+  <button class="hamburger" id="hbg" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobNav">
+  <a href="#sobre" onclick="closeNav()">Sobre</a>
+  <a href="#tratamentos" onclick="closeNav()">Tratamentos</a>
+  <a href="#exames" onclick="closeNav()">Exames</a>
+  <a href="#equipe" onclick="closeNav()">Equipe</a>
+  <a href="#contato" onclick="closeNav()">Contato</a>
+  <a href="https://wa.me/5511991111622?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="mob-cta" onclick="closeNav()">Agendar consulta</a>
+</div>
+
+<!-- HERO -->
+<main>
+<section class="hero" aria-label="Apresentação">
+  <div class="hero-left reveal">
+    <div class="hero-overline">Clínica Integrada</div>
+    <h1>Saúde completa,<br>cuidado que<br>transforma.</h1>
+    <p class="hero-body">Odontologia e medicina reunidas sob um mesmo teto. Equipe multidisciplinar, tecnologia de ponta e atendimento humanizado para você e sua família.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5511991111622?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="btn-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+      <a href="#tratamentos" class="btn-outline">
+        Ver tratamentos
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="hero.png" alt="Clínica AAAmulticlin" class="hero-photo-img" />
+  </div>
+</section>
+
+<!-- DIFFERENTIALS PREMIUM -->
+<section id="diferenciais" class="prem-section" aria-labelledby="prem-title">
+  <span class="prem-overline">Diferenciais</span>
+
+  <div class="prem-cols">
+
+    <!-- COL 1: headline + lead + hero image -->
+    <div class="prem-col1 reveal">
+      <h2 class="prem-headline" id="prem-title">Referência em<br>Invisalign e<br>reabilitação<br>estética.</h2>
+      <p class="prem-lead">A AAAmulticlin combina planejamento digital, experiência clínica e tecnologia de ponta para criar sorrisos naturais, funcionais e sofisticados.</p>
+      <div class="prem-main-img">
+        <img src="00.png" alt="Mão segurando alinhador Invisalign transparente" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- COL 2+3: imagens e textos alinhados em subgrid -->
+    <div class="prem-col23 reveal">
+
+      <!-- linha 01 -->
+      <div class="prem-stack-img">
+        <img src="01.jpg" alt="Alinhador Invisalign premium" loading="lazy" />
+      </div>
+      <div class="prem-block">
+        <span class="prem-block-num">01</span>
+        <div class="prem-block-title">Invisalign<br>Emerald Provider</div>
+        <span class="prem-block-sub">Excelência reconhecida. Resultados comprovados.</span>
+        <p class="prem-block-desc">Mais de 1000 tratamentos Invisalign realizados com planejamento digital de alta precisão.</p>
+        <ul class="prem-block-details">
+          <li>Scanner intraoral 3D</li>
+          <li>Planejamento digital avançado</li>
+          <li>Ortodontia estética premium</li>
+          <li>Experiência clínica reconhecida</li>
+        </ul>
+      </div>
+
+      <!-- linha 02 -->
+      <div class="prem-stack-img">
+        <img src="02.jpg" alt="Implante dentário com planejamento digital" loading="lazy" />
+      </div>
+      <div class="prem-block">
+        <span class="prem-block-num">02</span>
+        <div class="prem-block-title">Implantodontia<br>de Alta Performance</div>
+        <span class="prem-block-sub">Planejamento digital. Precisão absoluta.</span>
+        <p class="prem-block-desc">Implantes planejados digitalmente para máxima precisão estética e funcional.</p>
+        <ul class="prem-block-details">
+          <li>Tomografia computadorizada</li>
+          <li>Cirurgia guiada</li>
+          <li>Reabilitação estética</li>
+          <li>Alta previsibilidade clínica</li>
+        </ul>
+      </div>
+
+      <!-- linha 03 -->
+      <div class="prem-stack-img">
+        <img src="03.jpg" alt="Clínica AAAmulticlin — tecnologia e excelência" loading="lazy" />
+      </div>
+      <div class="prem-block">
+        <span class="prem-block-num">03</span>
+        <div class="prem-block-title">Tecnologia e<br>Excelência Clínica</div>
+        <span class="prem-block-sub">Tudo em um só lugar.</span>
+        <p class="prem-block-desc">Uma estrutura integrada que une odontologia, radiologia e especialidades médicas em um único ambiente.</p>
+        <ul class="prem-block-details">
+          <li>Radiologia digital completa</li>
+          <li>Equipe multidisciplinar</li>
+          <li>Ambiente moderno e acolhedor</li>
+          <li>Atendimento humanizado</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="sobre" class="about-section" aria-labelledby="about-title">
+  <div class="about-layout">
+    <div class="about-img-wrap reveal">
+      <div class="about-img" role="img" aria-label="Ambiente da clínica AAAmulticlin">
+        <img src="04.png" alt="Clínica AAAmulticlin — São Paulo" class="about-img-photo" loading="lazy" />
+        <span class="img-caption">Clínica AAAmulticlin — São Paulo</span>
+      </div>
+      <div class="about-stat-float" aria-label="Mais de uma década de excelência">
+        <span class="asf-num">10+</span>
+        <span class="asf-txt">anos de excelência em saúde</span>
+      </div>
+    </div>
+    <div class="about-text reveal d2">
+      <span class="s-tag">Sobre a clínica</span>
+      <h2 class="s-title" id="about-title">Saúde integrada,<br><em>cuidado completo</em></h2>
+      <p class="s-body">Somos uma clínica odontológica e médica de referência, com atendimento integrado, tecnologia de ponta e uma abordagem verdadeiramente humanizada para todas as idades.<br><br>Nossa equipe multidisciplinar atua de forma colaborativa para oferecer diagnósticos precisos, tratamentos personalizados e uma experiência acolhedora em cada detalhe.</p>
+      <div class="about-pillars" role="list">
+        <div class="pillar" role="listitem">
+          <span class="pillar-index">01</span>
+          <div class="pillar-body">
+            <h4>Rigor científico e atualização constante</h4>
+            <p>Aliamos formação sólida, tecnologia e prática baseada em evidências para garantir tratamentos modernos, seguros e previsíveis.</p>
+          </div>
+        </div>
+        <div class="pillar" role="listitem">
+          <span class="pillar-index">02</span>
+          <div class="pillar-body">
+            <h4>Experiência acolhedora para toda a família</h4>
+            <p>Ambientes planejados com conforto, leveza e cuidado tornam cada atendimento mais tranquilo — inclusive para os pequenos.</p>
+          </div>
+        </div>
+        <div class="pillar" role="listitem">
+          <span class="pillar-index">03</span>
+          <div class="pillar-body">
+            <h4>Tecnologia e excelência clínica</h4>
+            <p>Estrutura moderna, equipe especializada e protocolos avançados para oferecer tratamentos precisos e resultados de alta qualidade.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section id="tratamentos" aria-labelledby="treat-title">
+  <div class="treats-header reveal">
+    <div>
+      <span class="s-tag">Especialidades</span>
+      <h2 class="s-title" id="treat-title">Tratamentos que<br><em>transformam</em></h2>
+    </div>
+    <p class="s-body">Da estética à função, da odontologia à saúde integral — soluções completas sob um mesmo teto, com a qualidade que você merece.</p>
+  </div>
+  <div class="treats-grid reveal" role="list">
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat dental">Odontologia</span>
+      <h3>Ortodontia Digital<br>Invisalign</h3>
+      <p>Alinhadores transparentes de última geração. Resultado preciso, máximo conforto, estética preservada.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat dental">Odontologia</span>
+      <h3>Odontologia<br>Estética</h3>
+      <p>Design do sorriso, facetas e procedimentos estéticos modernos para uma transformação natural e elegante.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat dental">Odontologia</span>
+      <h3>Clareamento<br>Dental</h3>
+      <p>Clareamento profissional com protocolos seguros e resultados duradouros, realizado por especialistas.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat dental">Odontologia</span>
+      <h3>Plástica<br>Gengival</h3>
+      <p>Recontorno gengival para harmonização do sorriso com estética equilibrada e acabamento preciso.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat dental">Odontologia</span>
+      <h3>Aparelho<br>Ortodôntico</h3>
+      <p>Correção da má-oclusão com aparelhos fixos, removíveis e ortopedia funcional dos maxilares.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat dental">Odontologia</span>
+      <h3>Implanto-<br>dontia</h3>
+      <p>Implantes osseointegráveis com tecnologia avançada, devolvendo função e naturalidade ao sorriso.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat dental">Odontologia</span>
+      <h3>Prótese<br>Dentária</h3>
+      <p>Próteses fixas e removíveis com alta estética e funcionalidade, integradas ao planejamento clínico.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat dental">Odontologia</span>
+      <h3>Endodontia</h3>
+      <p>Tratamento de canal com técnicas e equipamentos modernos para preservar o dente natural com segurança.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat dental">Odontologia</span>
+      <h3>Periodontia</h3>
+      <p>Prevenção e tratamento de doenças gengivais com cuidado especializado nas estruturas de suporte dental.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat dental">Odontologia</span>
+      <h3>Odonto-<br>pediatria</h3>
+      <p>Atendimento odontológico especializado e acolhedor para crianças, formando hábitos saudáveis desde cedo.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat dental">Odontologia</span>
+      <h3>Limpeza e<br>Profilaxia</h3>
+      <p>Profilaxia profissional e orientação de higiene bucal para manter a saúde sempre em dia.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat medical">Medicina</span>
+      <h3>Fisioterapia</h3>
+      <p>Fisioterapia integrada ao cuidado odontológico, com foco em DTM e reabilitação funcional.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat medical">Medicina</span>
+      <h3>Nutricionista</h3>
+      <p>Acompanhamento nutricional integrado ao tratamento de saúde bucal e bem-estar geral.</p>
+    </div>
+    <div class="treat-item" role="listitem">
+      <span class="treat-cat medical">Medicina</span>
+      <h3>Oftal-<br>mologista</h3>
+      <p>Consultas oftalmológicas completas dentro da clínica, com cuidado integral para toda a família.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMS -->
+<section class="exams-section" id="exames" aria-labelledby="exams-title">
+  <div class="exams-layout">
+    <div class="exams-intro reveal">
+      <span class="s-tag">Radiologia Odontológica</span>
+      <h2 class="s-title" id="exams-title">Diagnóstico<br><em>preciso</em></h2>
+      <p class="s-body">Exames radiológicos completos com equipamentos digitais de última geração para um planejamento clínico exato e seguro.</p>
+    </div>
+    <div class="exams-grid reveal d2" role="list">
+      <div class="exam-item" role="listitem">
+        <span class="exam-n">01</span>
+        <div class="exam-name">Panorâmica</div>
+        <p class="exam-desc">Visão completa da arcada dentária, maxilares e estruturas adjacentes.</p>
+      </div>
+      <div class="exam-item" role="listitem">
+        <span class="exam-n">02</span>
+        <div class="exam-name">Tomografia<br>Computadorizada</div>
+        <p class="exam-desc">Imagem tridimensional de alta resolução para planejamentos complexos.</p>
+      </div>
+      <div class="exam-item" role="listitem">
+        <span class="exam-n">03</span>
+        <div class="exam-name">Escaneamento<br>3D</div>
+        <p class="exam-desc">Moldagem digital precisa, sem desconforto, para planejamento digital de tratamentos.</p>
+      </div>
+      <div class="exam-item" role="listitem">
+        <span class="exam-n">04</span>
+        <div class="exam-name">Telerradiografia</div>
+        <p class="exam-desc">Avaliação cefalométrica para planejamento ortodôntico e ortognático.</p>
+      </div>
+      <div class="exam-item" role="listitem">
+        <span class="exam-n">05</span>
+        <div class="exam-name">Radiografia de<br>ATM e Punho</div>
+        <p class="exam-desc">Avaliação da articulação temporomandibular e maturação óssea.</p>
+      </div>
+      <div class="exam-item" role="listitem">
+        <span class="exam-n">06</span>
+        <div class="exam-name">Periapical</div>
+        <p class="exam-desc">Imagem detalhada de dentes específicos para diagnóstico preciso de estruturas apicais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM / QUALIFICAÇÕES -->
+<section id="equipe" class="team-section" aria-labelledby="team-title">
+  <div class="team-header reveal">
+    <span class="team-tag">Sobre Nós</span>
+    <h2 class="team-headline" id="team-title">Qualificação e<br>Experiência</h2>
+  </div>
+  <div class="team-card reveal">
+    <div class="team-card-img">
+      <img src="dravivi.jpg" alt="Dra. Viviane Leal Pontes Silvério" loading="lazy" />
+    </div>
+    <div class="team-card-body">
+      <span class="team-role-label">Diretora Clínica</span>
+      <h3 class="team-name">Dra. Viviane Leal<br>Pontes Silvério</h3>
+      <span class="team-cro">CRO-73599</span>
+      <div class="team-quals" role="list">
+        <div class="team-qual-row" role="listitem">
+          <span class="team-qual-desc">Graduada em Odontologia — Universidade de São Paulo</span>
+          <span class="team-qual-year">2001</span>
+        </div>
+        <div class="team-qual-row" role="listitem">
+          <span class="team-qual-desc">Especialista em Implantodontia</span>
+          <span class="team-qual-year">2013</span>
+        </div>
+        <div class="team-qual-row" role="listitem">
+          <span class="team-qual-desc">Especialista em Ortodontia</span>
+          <span class="team-qual-year">2018</span>
+        </div>
+        <div class="team-qual-row" role="listitem">
+          <span class="team-qual-desc">Invisalign Doctor</span>
+          <span class="team-qual-year">2019</span>
+        </div>
+        <div class="team-qual-row" role="listitem">
+          <span class="team-qual-desc">Especialista em Harmonização Orofacial</span>
+          <span class="team-qual-year">2022</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="team-doctors-wrap reveal">
+    <span class="team-doctors-label">Equipe Clínica</span>
+    <div class="team-doctors-grid" role="list">
+      <div class="doctor-card" role="listitem">
+        <div class="doctor-card-name">Dra. Aline Fajoni</div>
+        <div class="doctor-card-cro">CRO 120087</div>
+      </div>
+      <div class="doctor-card" role="listitem">
+        <div class="doctor-card-name">Dra. Jucilene Moreira Alves</div>
+        <div class="doctor-card-cro">CRO 114852</div>
+      </div>
+      <div class="doctor-card" role="listitem">
+        <div class="doctor-card-name">Dra. Bruna Aparecida Aguiar</div>
+        <div class="doctor-card-cro">CRO 137044</div>
+      </div>
+      <div class="doctor-card" role="listitem">
+        <div class="doctor-card-name">Dr. Bruno Habner Ramos Barbosa</div>
+        <div class="doctor-card-cro">CRO 109498</div>
+      </div>
+      <div class="doctor-card" role="listitem">
+        <div class="doctor-card-name">Dr. Luan Oliveira Paes</div>
+        <div class="doctor-card-cro">CRO 122707</div>
+      </div>
+      <div class="doctor-card" role="listitem">
+        <div class="doctor-card-name">Dra. Amanda Sierra Marghotti</div>
+        <div class="doctor-card-cro">CRO 120709</div>
+      </div>
+      <div class="doctor-card" role="listitem">
+        <div class="doctor-card-name">Dra. Gabriela Torres dos Santos</div>
+        <div class="doctor-card-cro">CRO 150964</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FULL -->
+<div class="cta-full reveal" aria-label="Chamada para agendamento">
+  <div class="cta-full-text">
+    <h2>Pronto para cuidar<br>da sua <em>saúde com excelência?</em></h2>
+    <p>Agende sua consulta e conheça a AAAmulticlin.</p>
+  </div>
+  <div class="cta-full-actions">
+    <a href="https://wa.me/5511991111622?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="btn-white">Agendar pelo WhatsApp</a>
+    <a href="tel:+5511991111622" class="btn-ghost-white">(11) 99111-1622</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contato" aria-labelledby="contact-title">
+  <div class="contact-layout">
+    <div class="reveal">
+      <span class="s-tag">Contato</span>
+      <h2 class="s-title" id="contact-title" style="margin-top:16px">Fale com<br><em>nossa equipe</em></h2>
+      <div class="contact-links" role="list">
+        <a href="https://wa.me/5511991111622" target="_blank" rel="noopener" class="contact-link" role="listitem" aria-label="WhatsApp">
+          <div>
+            <div class="cl-label">WhatsApp</div>
+            <div class="cl-value">(11) 99111-1622</div>
+          </div>
+          <span class="cl-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="mailto:aaaodonto@gmail.com" class="contact-link" role="listitem" aria-label="E-mail">
+          <div>
+            <div class="cl-label">E-mail</div>
+            <div class="cl-value">aaaodonto@gmail.com</div>
+          </div>
+          <span class="cl-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://www.instagram.com/aaamulticlin/" target="_blank" rel="noopener" class="contact-link" role="listitem" aria-label="Instagram @aaamulticlin">
+          <div>
+            <div class="cl-label">Instagram</div>
+            <div class="cl-value">@aaamulticlin</div>
+          </div>
+          <span class="cl-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://www.instagram.com/dra.viviane/" target="_blank" rel="noopener" class="contact-link" role="listitem" aria-label="Instagram @dra.viviane">
+          <div>
+            <div class="cl-value">@dra.viviane</div>
+          </div>
+          <span class="cl-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://www.facebook.com/aaamulticlin/" target="_blank" rel="noopener" class="contact-link" role="listitem" aria-label="Facebook">
+          <div>
+            <div class="cl-label">Facebook</div>
+            <div class="cl-value">/aaamulticlin</div>
+          </div>
+          <span class="cl-arrow" aria-hidden="true">↗</span>
+        </a>
+        <div class="contact-info" role="listitem">
+          <div>
+            <div class="cl-label">Horário de Atendimento</div>
+            <div class="cl-value-text">Segunda a sexta: 08h às 19h<br>Sábado: 08h às 14h</div>
+          </div>
+        </div>
+        <div class="contact-info" role="listitem">
+          <div>
+            <div class="cl-label">Endereço</div>
+            <div class="cl-value-text">Av. dos Autonomistas, 896 — Torre 2, sala 2803<br>Vila Yara, Osasco — SP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right reveal d2">
+      <span class="s-tag">Agendamento</span>
+      <h2 class="s-title" style="margin-top:16px">Sua consulta<br><em>a um clique</em></h2>
+      <p class="s-body" style="margin-top:16px">O canal mais direto para agendar é o WhatsApp. Nossa equipe responde com agilidade e oferece orientação personalizada desde o primeiro contato.</p>
+      <a href="https://wa.me/5511991111622?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20AAAmulticlin." target="_blank" rel="noopener" class="wa-cta" style="margin-top:40px;" aria-label="Agendar pelo WhatsApp">
+        <div class="wa-cta-left">
+          <span class="wa-overline">WhatsApp</span>
+          <div class="wa-num">(11) 99111-1622</div>
+        </div>
+        <span class="wa-action">Agendar agora</span>
+      </a>
+      <div class="contact-map">
+        <iframe
+          src="https://maps.google.com/maps?q=Av.+dos+Autonomistas,+896+Torre+2+sala+2803+Vila+Yara+Osasco+SP+06020-000&output=embed&z=16"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Localização AAAmulticlin — Osasco SP">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" aria-label="AAAmulticlin">
+        <img src="logo.jpg" alt="AAAmulticlin" class="logo-img" />
+      </a>
+      <p class="footer-desc">Clínica odontológica e médica integrada de referência em São Paulo. Excelência, tecnologia e atendimento humanizado desde o primeiro contato.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#tratamentos">Tratamentos</a></li>
+        <li><a href="#exames">Exames</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Especialidades</h5>
+      <ul>
+        <li><a href="#tratamentos">Invisalign</a></li>
+        <li><a href="#tratamentos">Implantodontia</a></li>
+        <li><a href="#tratamentos">Odontologia Estética</a></li>
+        <li><a href="#tratamentos">Ortodontia</a></li>
+        <li><a href="#tratamentos">Fisioterapia</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contato</h5>
+      <ul>
+        <li><a href="https://wa.me/5511991111622" target="_blank" rel="noopener">(11) 99111-1622</a></li>
+        <li><a href="mailto:aaaodonto@gmail.com">aaaodonto@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/aaamulticlin/" target="_blank" rel="noopener">@aaamulticlin</a></li>
+        <li><a href="https://www.instagram.com/dra.viviane/" target="_blank" rel="noopener">@dra.viviane</a></li>
+        <li><a href="https://www.facebook.com/aaamulticlin/" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 AAAmulticlin. Todos os direitos reservados.</span>
+    <span>Seg–Sex: 08h–19h · Sáb: 08h–14h</span>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<div class="float-wa" role="complementary" aria-label="Contato rápido">
+  <span class="float-wa-label" aria-hidden="true">Agendar consulta</span>
+  <a href="https://wa.me/5511991111622?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="float-wa-btn" aria-label="Falar pelo WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+<script>
+const hbg=document.getElementById('hbg');
+const mobNav=document.getElementById('mobNav');
+let open=false;
+hbg.addEventListener('click',()=>{
+  open=!open;
+  mobNav.style.display=open?'flex':'none';
+  hbg.setAttribute('aria-expanded',open);
+});
+function closeNav(){open=false;mobNav.style.display='none';hbg.setAttribute('aria-expanded','false')}
+
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up')});
+},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+window.addEventListener('scroll',()=>{
+  const n=document.querySelector('nav');
+  n.style.borderBottomColor=window.scrollY>60?'var(--border-light)':'transparent';
+},{passive:true});
+</script>
+</body>
+</html>
