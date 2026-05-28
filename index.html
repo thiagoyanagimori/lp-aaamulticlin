@@ -1733,7 +1733,7 @@ const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up')});
 },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
+  
 window.addEventListener('scroll',()=>{
   const n=document.querySelector('nav');
   n.style.borderBottomColor=window.scrollY>60?'var(--border-light)':'transparent';
